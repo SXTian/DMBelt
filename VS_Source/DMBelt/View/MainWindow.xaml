@@ -1,0 +1,83 @@
+﻿<Window 
+  x:Class="DMBelt.MainWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:vm="clr-namespace:DMBelt.ViewModel"
+  FontSize="13" 
+  FontFamily="Verdana"
+  MinWidth="1440" MinHeight="900"
+  Title="{Binding Path=DisplayName}"
+  Width="650" Height="420"
+  WindowStartupLocation="CenterScreen"
+  >
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources\ViewModelBindings.xaml" />
+                <ResourceDictionary Source="Resources\ControlPanelResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <DockPanel>
+        <DockPanel.Style>
+            <Style TargetType="{x:Type DockPanel}">
+                <Setter Property="Background" Value="#111"/>
+            </Style>
+        </DockPanel.Style>
+        <DockPanel DockPanel.Dock="Top" KeyboardNavigation.TabNavigation="None">
+            <Menu KeyboardNavigation.TabNavigation="Cycle">
+                <Menu.Style>
+                    <Style TargetType="{x:Type Menu}">
+                        <Setter Property="Background" Value="#111"/>
+                        <Setter Property="Foreground" Value="#EEE"/>
+                    </Style>
+                </Menu.Style>
+                <MenuItem Header="File">
+                    <MenuItem Header="Save" Command="{Binding Path=SaveCommand}" Background="#111" />
+                    <MenuItem Header="Exit" Command="{Binding Path=CloseCommand}" Background="#111"/>
+                </MenuItem>
+                <MenuItem Header="Edit" />
+                <MenuItem Header="Options" />
+                <MenuItem Header="Help" />
+            </Menu>
+        </DockPanel>
+
+        <Grid Margin="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="4" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" Style="{StaticResource MainBorderStyle}" Width="210">
+                    <HeaderedContentControl Content="{Binding Path=Commands}"
+                                        ContentTemplate="{StaticResource CommandsTemplate}"
+                                        Header="Control Panel"
+                                        Style="{StaticResource ControlPanelStyle}"/>
+                </Border>
+
+                <Border Grid.Row="1" Style="{StaticResource MainBorderStyle}" Width="210">
+                    <HeaderedContentControl Content="{Binding Path=Workspaces}"
+                                        ContentTemplate="{StaticResource WorkItemsTemplate}"
+                                        Header="Work Items"
+                                        Style="{StaticResource ControlPanelStyle}"/>
+                </Border>
+
+            </Grid>
+
+
+
+            <Border Grid.Column="2" Style="{StaticResource MainBorderStyle}">
+                <ContentControl Content="{Binding Path=ActiveWorkspace}" />
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>

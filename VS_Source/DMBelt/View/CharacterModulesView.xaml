@@ -1,0 +1,424 @@
+﻿<UserControl 
+  x:Class="DMBelt.View.CharacterModulesView"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:vw="clr-namespace:DMBelt.View"
+  xmlns:cc="clr-namespace:CustomControls;assembly=CustomControls"
+  HorizontalAlignment="Center"
+  VerticalAlignment="Center"  
+  Width="1139">
+
+    <UserControl.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources\ValidationErrorResources.xaml" />
+                <ResourceDictionary Source="Resources\FeatListResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="509" />
+            <ColumnDefinition Width="650" />
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <!-- DEFINITIONS -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120" />
+                <RowDefinition Height="180" />
+                <RowDefinition Height="300" />
+            </Grid.RowDefinitions>
+
+
+            <!-- NEW GRID: PROFILE-->
+            <Grid Grid.Column="0" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="300" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+
+                <!-- IS PC -->
+                <RadioButton Grid.Column="1" GroupName="IsPC" Content="PC" IsChecked="{Binding Path=IsPC}" Foreground="#EEE" VerticalAlignment="Center" Margin="25,7,209,0" Height="23"/>
+                <RadioButton Grid.Column="1" GroupName="IsPC" Content="NPC" IsChecked="{Binding Path=IsNPC}" Foreground="#EEE" VerticalAlignment="Center" Margin="107,8,130,0" Height="22"/>
+
+                <!-- IS MALE -->
+                <RadioButton Grid.Column="1"  GroupName="IsMale" Content="Female" IsChecked="{Binding Path=IsFemale}" Foreground="#EEE" VerticalAlignment="Center" Margin="25,8,209,0" Height="22" Grid.Row="2"/>
+                <RadioButton Grid.Column="1"  GroupName="IsMale" Content="Male" IsChecked="{Binding Path=IsMale}" Foreground="#EEE" VerticalAlignment="Center" Margin="107,8,130,0" Height="22" Grid.Row="2"/>
+
+                <!-- NAME-->
+                <Label Grid.Row="0" Foreground="#EEE" Content="Name:" Margin="0,0,249,0"/>
+                <TextBox x:Name="nameTxt"
+                     Grid.Row="0" 
+                     Text="{Binding Path=Name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+                     Validation.ErrorTemplate="{x:Null}" Margin="56,5,0,5"/>
+                <ContentPresenter Grid.Row="1" Content="{Binding ElementName=nameTxt, Path=(Validation.Errors).CurrentItem}" Margin="56,0,0,0"/>
+
+                <!-- RACE-->
+                <Label Grid.Row="2" Grid.Column="0" Foreground="#EEE" Content="Race:" Margin="5,0,244,0" />
+                <TextBox x:Name="raceTxt"
+                     Grid.Row="2" 
+                     Text="{Binding Path=Race, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                     Validation.ErrorTemplate="{x:Null}" Margin="56,5,0,5" />
+                <ContentPresenter Grid.Row="3" Content="{Binding ElementName=raceTxt, Path=(Validation.Errors).CurrentItem}" Margin="56,0,0,0"/>
+            </Grid>
+
+            <!-- NEW GRID: Class & Ability-->
+            <Grid Grid.Column="0" Grid.Row="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="250" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+
+                <!-- Class -->
+                <Label Grid.Row="1" Grid.Column="2" Foreground="#EEE" Content="Class:" HorizontalAlignment="Center" />
+                <TextBox x:Name="classTxt" 
+                     Grid.Column="3" 
+                     Text="{Binding Path=Class, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                     Validation.ErrorTemplate="{x:Null}" Margin="1,0,54,6" Height="20" VerticalAlignment="Bottom" Grid.Row="1" />
+                <ContentPresenter Grid.Row="2" Grid.Column="3" Content="{Binding ElementName=classTxt, Path=(Validation.Errors).CurrentItem}" Margin="0,0,55,0" />
+
+                <!-- Level -->
+                <Label Grid.Row="3" Grid.Column="2" Foreground="#EEE" Content="LV:" HorizontalAlignment="Center"/>
+                <cc:SpinnerControl Grid.Row="3" Grid.Column="3"
+                               Width="250" HorizontalAlignment="Stretch"
+                               Background="#111"
+                               Change="1" DecimalPlaces="0"
+                               Maximum="20" Minimum="1"
+                               RenderTransform="{Binding}"
+                               Value="{Binding Path=Level}"/>
+
+                <!-- Experience -->
+                <Label Grid.Row="5" Grid.Column="2" Foreground="#EEE" Content="EXP:" HorizontalAlignment="Center"/>
+                <cc:SpinnerControl Grid.Row="5" Grid.Column="3"
+                               Width="250" HorizontalAlignment="Stretch"
+                               Background="#111"
+                               Change="100" DecimalPlaces="0"
+                               Maximum="1000000" Minimum="0"
+                               RenderTransform="{Binding}"
+                               Value="{Binding Path=Experience}"/>
+
+                <!-- Strength -->
+                <Label Grid.Row="0" Grid.Column="0" Foreground="#EEE" Content="STR:" Margin="2,0,0,0"  />
+                <cc:SpinnerControl Grid.Row="0" Grid.Column="1"
+                               Width="50" HorizontalAlignment="Left"
+                               Background="#111"
+                               Change="1" DecimalPlaces="0"
+                               Maximum="20" Minimum="3"
+                               RenderTransform="{Binding}"
+                               Value="{Binding Path=STR}"/>
+                <!-- Dexterity -->
+                <Label Grid.Row="1" Grid.Column="0" Foreground="#EEE" Content="DEX:" />
+                <cc:SpinnerControl Grid.Row="1" Grid.Column="1"
+                               Width="50" HorizontalAlignment="Left"
+                               Background="#111"
+                               Change="1" DecimalPlaces="0"
+                               Maximum="20" Minimum="3"
+                               RenderTransform="{Binding}"
+                               Value="{Binding Path=DEX}"/>
+                <!-- Constitution -->
+                <Label Grid.Row="2" Grid.Column="0" Foreground="#EEE" Content="CON:" Margin="-2,0,0,0" />
+                <cc:SpinnerControl Grid.Row="2" Grid.Column="1"
+                               Width="50" HorizontalAlignment="Left"
+                               Background="#111"
+                               Change="1" DecimalPlaces="0"
+                               Maximum="20" Minimum="3"
+                               RenderTransform="{Binding}"
+                               Value="{Binding Path=CON}"/>
+                <!-- Intelligence -->
+                <Label Grid.Row="3" Grid.Column="0" Foreground="#EEE" Content="INT:" Margin="4,0,0,0"  />
+
+                <cc:SpinnerControl Grid.Row="3" Grid.Column="1"
+                               Width="50" HorizontalAlignment="Left"
+                               Background="#111"
+                               Change="1" DecimalPlaces="0"
+                               Maximum="20" Minimum="3"
+                               RenderTransform="{Binding}"
+                               Value="{Binding Path=INT}"/>
+                <!-- Wisdom -->
+                <Label Grid.Row="4" Grid.Column="0" Foreground="#EEE" Content="WIS:" />
+                <cc:SpinnerControl Grid.Row="4" Grid.Column="1"
+                               Width="50" HorizontalAlignment="Left"
+                               Background="#111"
+                               Change="1" DecimalPlaces="0"
+                               Maximum="20" Minimum="3"
+                               RenderTransform="{Binding}"
+                               Value="{Binding Path=WIS}"/>
+
+                <!-- Charisma -->
+                <Label Grid.Row="5" Grid.Column="0" Foreground="#EEE" Content="CHA:" Margin="-1,0,4,0" />
+                <cc:SpinnerControl Grid.Row="5" Grid.Column="1"
+                               Width="50" HorizontalAlignment="Left"
+                               Background="#111"
+                               Change="1" DecimalPlaces="0"
+                               Maximum="20" Minimum="3"
+                               RenderTransform="{Binding}"
+                               Value="{Binding Path=CHA}"/>
+            </Grid>
+
+
+            <ListView Grid.Row="2" AlternationCount="2" DataContext="{StaticResource FeatList}" 
+                  ItemContainerStyle="{StaticResource FeatStyle}" ItemsSource="{Binding}" Background="#111" BorderThickness="0" Margin="0,10,10,-43">
+
+
+                <ListView.View>
+                    <GridView>
+
+                        <GridViewColumn Header="Feat Name" Width="246"
+                                HeaderContainerStyle="{StaticResource HeaderStyle}" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ContentPresenter Content="{Binding Path=FeatName}" HorizontalAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Qualifier" Width="246"
+                                HeaderContainerStyle="{StaticResource HeaderStyle}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ContentPresenter Content="{Binding Path=Qualifier}" HorizontalAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Label Grid.Row="2" Foreground="#EEE" Content="Feat Name:" Margin="0,347,423,-72"/>
+            <TextBox x:Name="featName"
+                     Grid.Row="2" 
+                     Text="{Binding Path=currentFeatName, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="85,353,111,-71"/>
+
+            <Label Grid.Row="2" Foreground="#EEE" Content="Qualifier:" Margin="10,378,424,-107"/>
+            <TextBox x:Name="qualifier"
+                     Grid.Row="2" 
+                     Text="{Binding Path=currentQualifier, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="85,384,110,-102"/>
+
+            <Button Grid.Row="2"
+                Command="{Binding Path=AddFeatCommand}"
+                Content="Add Feat" Margin="414,360,17,-90" />
+        </Grid>
+        <!-- NEW GRID: Skills-->
+        <Grid Grid.Column="1" Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+
+            <!-- SKILLS -->
+            <Label Grid.Row="0" Grid.Column="0" Foreground="#EEE" Background="#222" Content="Acrobatics:" />
+            <cc:SpinnerControl Grid.Row="0" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#222"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Acrobatics}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Foreground="#EEE" Content="Appraise:" />
+            <cc:SpinnerControl Grid.Row="1" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Appraise}"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Foreground="#EEE" Background="#222" Content="Bluff:" />
+            <cc:SpinnerControl Grid.Row="2" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#222"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Bluff}"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Foreground="#EEE"  Content="Climb:" />
+            <cc:SpinnerControl Grid.Row="3" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#111" 
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Climb}"/>
+
+            <Label Grid.Row="4" Grid.Column="0" Foreground="#EEE" Background="#222" Content="Craft:" />
+            <cc:SpinnerControl Grid.Row="4" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#222"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Craft}"/>
+
+            <Label Grid.Row="5" Grid.Column="0" Foreground="#EEE"  Content="Diplomacy" />
+            <cc:SpinnerControl Grid.Row="5" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Diplomacy}"/>
+
+            <Label Grid.Row="6" Grid.Column="0" Foreground="#EEE" Background="#222" Content="Disable Device:" />
+            <cc:SpinnerControl Grid.Row="6" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#222" 
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=DisableDevice}"/>
+
+            <Label Grid.Row="7" Grid.Column="0" Foreground="#EEE"  Content="Disguise:" />
+            <cc:SpinnerControl Grid.Row="7" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Disguise}"/>
+
+            <Label Grid.Row="8" Grid.Column="0" Foreground="#EEE" Background="#222" Content="Escape Artist:" />
+            <cc:SpinnerControl Grid.Row="8" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#222"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=EscapeArtist}"/>
+
+            <Label Grid.Row="9" Grid.Column="0" Foreground="#EEE"  Content="Fly:" />
+            <cc:SpinnerControl Grid.Row="9" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Fly}"/>
+
+            <Label Grid.Row="10" Grid.Column="0" Foreground="#EEE" Background="#222" Content="Handle Animal:" />
+            <cc:SpinnerControl Grid.Row="10" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#222" 
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=HandleAnimal}"/>
+
+            <Label Grid.Row="11" Grid.Column="0" Foreground="#EEE"  Content="Heal:" />
+            <cc:SpinnerControl Grid.Row="11" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Heal}"/>
+
+            <Label Grid.Row="12" Grid.Column="0" Foreground="#EEE" Background="#222" Content="Intimidate:" />
+            <cc:SpinnerControl Grid.Row="12" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#222" 
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Intimidate}"/>
+
+            <Label Grid.Row="13" Grid.Column="0" Foreground="#EEE"  Content="Knowledge (Arcana):" />
+            <cc:SpinnerControl Grid.Row="13" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=KnowledgeArcana}"/>
+
+            <Label Grid.Row="14" Grid.Column="0" Foreground="#EEE" Background="#222" Content="Knowledge (Dungeoneering):" />
+            <cc:SpinnerControl Grid.Row="14" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#222" 
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=KnowledgeDungeoneering}"/>
+
+            <Label Grid.Row="15" Grid.Column="0" Foreground="#EEE"  Content="Knowledge (Engineering):" />
+            <cc:SpinnerControl Grid.Row="15" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=KnowledgeEngineering}"/>
+
+            <Label Grid.Row="16" Grid.Column="0" Foreground="#EEE" Background="#222" Content="Knowledge (Geography):" />
+            <cc:SpinnerControl Grid.Row="16" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#222" 
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=KnowledgeGeography}"/>
+
+            <Label Grid.Row="17" Grid.Column="0" Foreground="#EEE"  Content="Knowledge (History):" />
+            <cc:SpinnerControl Grid.Row="17" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=KnowledgeHistory}"/>
+
+            <Label Grid.Row="18" Grid.Column="0" Foreground="#EEE" Background="#222" Content="Knowledge (Local):" />
+            <cc:SpinnerControl Grid.Row="18" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#222" 
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=KnowledgeLocal}"/>
+
+            <Label Grid.Row="19" Grid.Column="0" Foreground="#EEE"  Content="Knowledge (Nature):" />
+            <cc:SpinnerControl Grid.Row="19" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=KnowledgeNature}"/>
+
+            <Label Grid.Row="20" Grid.Column="0" Foreground="#EEE" Background="#222" Content="Knowledge (Nobility):" />
+            <cc:SpinnerControl Grid.Row="20" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#222" 
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=KnowledgeNobility}"/>
+
+            <Label Grid.Row="21" Grid.Column="0" Foreground="#EEE"  Content="Knowledge (Planes):" />
+            <cc:SpinnerControl Grid.Row="21" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=KnowledgePlanes}"/>
+
+            <Label Grid.Row="22" Grid.Column="0" Foreground="#EEE" Background="#222" Content="Knowledge (Religion):" />
+            <cc:SpinnerControl Grid.Row="22" Grid.Column="1" Height="30" Width="50" HorizontalAlignment="Left" Background="#222" 
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=KnowledgeReligion}"/>
+
+            <Label Grid.Row="0" Grid.Column="3" Foreground="#EEE" Background="#222" Content="Linguistics:" />
+            <cc:SpinnerControl Grid.Row="0" Grid.Column="4" Height="30" Width="50" HorizontalAlignment="Left" Background="#222"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Linguistics}"/>
+
+            <Label Grid.Row="1" Grid.Column="3" Foreground="#EEE"  Content="Perception:" />
+            <cc:SpinnerControl Grid.Row="1" Grid.Column="4" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Perception}"/>
+
+            <Label Grid.Row="2" Grid.Column="3" Foreground="#EEE" Background="#222" Content="Perform:" />
+            <cc:SpinnerControl Grid.Row="2" Grid.Column="4" Height="30" Width="50" HorizontalAlignment="Left" Background="#222"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Perform}"/>
+
+            <Label Grid.Row="3" Grid.Column="3" Foreground="#EEE"  Content="Profession:" />
+            <cc:SpinnerControl Grid.Row="3" Grid.Column="4" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Profession}"/>
+
+            <Label Grid.Row="4" Grid.Column="3" Foreground="#EEE" Background="#222" Content="Ride:" />
+            <cc:SpinnerControl Grid.Row="4" Grid.Column="4" Height="30" Width="50" HorizontalAlignment="Left" Background="#222"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Ride}"/>
+
+            <Label Grid.Row="5" Grid.Column="3" Foreground="#EEE"  Content="Sense Motive" />
+            <cc:SpinnerControl Grid.Row="5" Grid.Column="4" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=SenseMotive}"/>
+
+            <Label Grid.Row="6" Grid.Column="3" Foreground="#EEE" Background="#222" Content="Sleight of Hand:" />
+            <cc:SpinnerControl Grid.Row="6" Grid.Column="4" Height="30" Width="50" HorizontalAlignment="Left" Background="#222" 
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=SleightOfHand}"/>
+
+            <Label Grid.Row="7" Grid.Column="3" Foreground="#EEE"  Content="Spellcraft:" />
+            <cc:SpinnerControl Grid.Row="7" Grid.Column="4" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Spellcraft}"/>
+
+            <Label Grid.Row="8" Grid.Column="3" Foreground="#EEE" Background="#222" Content="Stealth:" />
+            <cc:SpinnerControl Grid.Row="8" Grid.Column="4" Height="30" Width="50" HorizontalAlignment="Left" Background="#222"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Stealth}"/>
+
+            <Label Grid.Row="9" Grid.Column="3" Foreground="#EEE"  Content="Survival:" />
+            <cc:SpinnerControl Grid.Row="9" Grid.Column="4" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Survival}"/>
+
+            <Label Grid.Row="10" Grid.Column="3" Foreground="#EEE" Background="#222" Content="Swim:" />
+            <cc:SpinnerControl Grid.Row="10" Grid.Column="4" Height="30" Width="50" HorizontalAlignment="Left" Background="#222" 
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=Swim}"/>
+
+            <Label Grid.Row="11" Grid.Column="3" Foreground="#EEE"  Content="Use Magic Device:" />
+            <cc:SpinnerControl Grid.Row="11" Grid.Column="4" Height="30" Width="50" HorizontalAlignment="Left" Background="#111"
+                               Change="1" DecimalPlaces="0" Maximum="20" Minimum="0" RenderTransform="{Binding}" Value="{Binding Path=UseMagicDevice}"/>
+
+
+            <Label Grid.Row="0" Grid.Column="2" Background="#222" />
+            <Label Grid.Row="2" Grid.Column="2" Background="#222" />
+            <Label Grid.Row="4" Grid.Column="2" Background="#222" />
+            <Label Grid.Row="6" Grid.Column="2" Background="#222" />
+            <Label Grid.Row="8" Grid.Column="2" Background="#222" />
+            <Label Grid.Row="10" Grid.Column="2" Background="#222" />
+        </Grid>
+        <!-- SAVE BUTTON -->
+        <Button Grid.Column="1"
+                Command="{Binding Path=SaveCommand}"
+                Content="Save"
+                HorizontalAlignment="Right"
+                Margin="0,546,158,153" 
+                MinWidth="60" Width="66"  />
+
+
+
+
+
+    </Grid>
+</UserControl>
