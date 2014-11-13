@@ -1,0 +1,29 @@
+﻿<!-- This resource dictionary is used to bind view models to views. -->
+<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:vm="clr-namespace:DMBelt.ViewModel.Workspaces"
+  xmlns:vw="clr-namespace:DMBelt.View"
+  >
+
+    <!-- All Characters View Model -->
+    <DataTemplate DataType="{x:Type vm:AllCharactersViewModel}">
+        <vw:AllCharactersView />
+    </DataTemplate>
+
+    <!-- Character Modules View Model -->
+    <DataTemplate DataType="{x:Type vm:CharacterModulesViewModel}">
+        <vw:CharacterModulesView />
+    </DataTemplate>
+
+    <!-- Character Spells View Model -->
+    <DataTemplate DataType="{x:Type vm:CharacterSpellsViewModel}">
+        <vw:CharacterSpellsView />
+    </DataTemplate>
+
+    <!-- Character Items View Model -->
+    <DataTemplate DataType="{x:Type vm:CharacterItemsViewModel}">
+        <vw:CharacterItemsView />
+    </DataTemplate>
+
+</ResourceDictionary>

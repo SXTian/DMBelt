@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Characters>
+  <Character>
+    <ProfileModule Name="Myrin of Beshaba's Tears" IsPC="true" IsFemale="false" />
+    <RaceModule Race="Human"/>
+    <ClassModule Class="Magus" Level="12" Experience="2486" />
+    <HealthModule Dying="false" BaseHP="74" TempHP="0" Wounds="0" Nonlethal="0" />
+    <AbilityModule Ability="STR" Score="19" />
+    <AbilityModule Ability="DEX" Score="12" />
+    <AbilityModule Ability="CON" Score="14" />
+    <AbilityModule Ability="INT" Score="20" />
+    <AbilityModule Ability="WIS" Score="12" />
+    <AbilityModule Ability="CHA" Score="10" />
+    <SkillModule Skill="Acrobatics" Rank="12" />
+    <SkillModule Skill="Climb" Rank="1" />
+    <SkillModule Skill="Fly" Rank="12" />
+    <SkillModule Skill="Intimidate" Rank="12" />
+    <SkillModule Skill="Linguistics" Rank="12" />
+    <SkillModule Skill="Perception" Rank="12" />
+    <SkillModule Skill="Ride" Rank="1" />
+    <SkillModule Skill="Spellcraft" Rank="12" />
+    <SkillModule Skill="Swim" Rank="1" />
+    <SkillModule Skill="UseMagicDevice" Rank="12" />
+    <SkillModule Skill="KnowledgeArcana" Rank="6" />
+    <SkillModule Skill="KnowledgeGeography" Rank="12" />
+    <SkillModule Skill="KnowledgeDungeoneering" Rank="1" />
+    <SkillModule Skill="KnowledgeThePlanes" Rank="5" />
+    <SkillModule Skill="ProfessionSailor" Rank="1" />
+    <FeatModule Feat="Magical Lineage" Qualifier="Shocking Grasp" />
+    <FeatModule Feat="Metamagic Master" Qualifier="Fireball" />
+    <FeatModule Feat="Outlaw" Qualifier="Calimport" />
+    <FeatModule Feat="Arrogant" Qualifier="" />
+    <FeatModule Feat="Toughness" Qualifier="" />
+    <FeatModule Feat="Improved Familiar" Qualifier="Imp" />
+    <FeatModule Feat="Spell Penetration" Qualifier="" />
+    <FeatModule Feat="Greater Spell Penetration" Qualifier="" />
+    <FeatModule Feat="Intensify Spell" Qualifier="" />
+    <FeatModule Feat="Elemental" Qualifier="" />
+    <FeatModule Feat="Empower Spell" Qualifier="" />
+    <FeatModule Feat="Quicken Spell" Qualifier="" />
+    <FeatModule Feat="Arcane Disciple" Qualifier="War" />
+    <PreparedSpellModule Spell="Acid Splash" Level="0" Quantity="0" Metamagic="" />
+    <PreparedSpellModule Spell="Disrupt Undead" Level="0" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Ray of Frost" Level="0" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Daze" Level="0" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Flare" Level="0" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Arcane Mark" Level="0" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Dancing Lights" Level="0" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Detect Magic" Level="0" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Ghost Sound" Level="0" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Light" Level="0" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Mage Hand" Level="0" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Open-Close" Level="0" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Prestidigitation" Level="0" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Read Magic" Level="0" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Spark" Level="0" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Shocking Grasp" Level="1" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Shocking Grasp" Level="1" Quantity="1" Metamagic="Intensify"/>
+    <PreparedSpellModule Spell="Shocking Grasp" Level="2" Quantity="1" Metamagic="Intensify Elemental(Acid)"/>
+    <PreparedSpellModule Spell="Shocking Grasp" Level="3" Quantity="1" Metamagic="Intensify Empower"/>
+    <PreparedSpellModule Spell="Shocking Grasp" Level="4" Quantity="1" Metamagic="Intensify Elemental(Acid) Empower"/>
+    <PreparedSpellModule Spell="Magic Missile" Level="1" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Obscuring Mist" Level="1" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Grease" Level="1" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Color Spray" Level="1" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Shield" Level="1" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="True Strike" Level="1" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Enlarge Person" Level="1" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Expeditious Retreat" Level="1" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Infernal Healing" Level="1" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Floating Disk" Level="1" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Blood Money" Level="1" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Frigid Touch" Level="2" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Scorching Ray" Level="2" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Glitterdust" Level="2" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Mirror Image" Level="2" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Reloading Hands" Level="2" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Bull's Strength" Level="2" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Cat's Grace" Level="2" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Vampiric Touch" Level="3" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Fireball" Level="3" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Fireball" Level="3" Quantity="1" Metamagic="Intensify"/>
+    <PreparedSpellModule Spell="Displacement" Level="3" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Haste" Level="3" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Fly" Level="3" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Water Breathing" Level="3" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Dimension Door" Level="4" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Arcana Theft" Level="4" Quantity="0" Metamagic=""/>
+    <PreparedSpellModule Spell="Divine Power" Level="4" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Stoneskin" Level="4" Quantity="1" Metamagic=""/>
+    <PreparedSpellModule Spell="Wreath of Blades" Level="4" Quantity="0" Metamagic=""/>
+    <EquipmentModule Equipment="Scimitar" Enhancement="1" Material="Metal" Slot="Wield" />
+    <EquipmentModule Equipment="Full Plate" Enhancement="2" Material="Mithral" Slot="Armor" />
+    <EquipmentModule Equipment="Amulet of Natural Armor" Enhancement="1" Material="Metal" Slot="Neck" />
+    <EquipmentModule Equipment="Boots of Striding and Springing" Enhancement="1" Material="Leather" Slot="Feet" />
+    <EquipmentModule Equipment="Gloves of Arrow Snatching" Enhancement="1" Material="Leather" Slot="Hands" />
+    <EquipmentModule Equipment="Ring of Energy Resistance, Fire" Enhancement="1" Material="Metal" Slot="Ring" />
+    <EquipmentModule Equipment="Ring of Protection" Enhancement="1" Material="Metal" Slot="Ring" />
+    <EquipmentModule Equipment="Ioun Stone, Incandescent Blue Sphere" Enhancement="2" Material="Stone" Slot="Slotless" />
+    <EquipmentModule Equipment="Lucky Dice of Strength" Enhancement="1" Material="Ivory" Slot="Slotless" />
+    <ItemModule Item="Longbow of Disruption" Enhancement="1" Material="Wood" Quantity="1" />
+    <ItemModule Item="Arrows" Enhancement="0" Material="Wood" Quantity="40" />
+    <ItemModule Item="Ring of Counterspells" Enhancement="1" Material="Metal" Quantity="1" />
+    <ItemModule Item="Horn of Evil" Enhancement="1" Material="Wood" Quantity="1" />
+    <ItemModule Item="Everfull Mug" Enhancement="1" Material="Wood" Quantity="1" />
+    <ItemModule Item="Amandar's Brooch" Enhancement="0" Material="Stone" Quantity="1" />
+    <ItemModule Item="Kaleesh's Journal" Enhancement="0" Material="Parchment" Quantity="1" />
+    <ItemModule Item="Spell Component Pouch" Enhancement="0" Material="Leather" Quantity="1" />
+    <ItemModule Item="Scroll of Hypnotism" Enhancement="1" Material="Parchment" Quantity="1" />
+    <ItemModule Item="Scroll of Protection from Chaos" Enhancement="1" Material="Parchment" Quantity="1" />
+    <ItemModule Item="Scroll of Shocking Grasp" Enhancement="1" Material="Parchment" Quantity="1" />
+    <ItemModule Item="Potion of Fly" Enhancement="1" Material="Glass" Quantity="1" />
+    <ItemModule Item="Potion of Enlarge Person" Enhancement="1" Material="Glass" Quantity="1" />
+    <ItemModule Item="Potion of Remove Fear" Enhancement="1" Material="Glass" Quantity="1" />
+    <ItemModule Item="Potion of Hide from Animals" Enhancement="1" Material="Glass" Quantity="1" />
+    <ItemModule Item="Coin" Enhancement="0" Material="Platinum" Quantity="300" />
+    <ItemModule Item="Coin" Enhancement="0" Material="Gold" Quantity="149" />
+    <ItemModule Item="Coin" Enhancement="0" Material="Silver" Quantity="50" />
+  </Character>
+</Characters>

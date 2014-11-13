@@ -1,0 +1,62 @@
+﻿<UserControl 
+  x:Class="DMBelt.View.AllCharactersView"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- UI RESOURCES -->
+    <UserControl.Resources>
+        <ResourceDictionary Source="Resources/CharacterListResources.xaml" />
+    </UserControl.Resources>
+
+    <!-- UI OBJECTS BEGIN HERE-->
+    <ListView AlternationCount="2" DataContext="{StaticResource CharacterList}" 
+                  ItemContainerStyle="{StaticResource CharacterItemStyle}" ItemsSource="{Binding}" Background="#111" BorderThickness="0">
+
+        <ListView.GroupStyle>
+            <StaticResourceExtension ResourceKey="CharacterListStyle" />
+        </ListView.GroupStyle>
+
+        <ListView.View>
+            <GridView>
+
+                <GridViewColumn Header="Character Name" Width="300"
+                                HeaderContainerStyle="{StaticResource HeaderStyle}" >
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <ContentPresenter Content="{Binding Path=Name}" HorizontalAlignment="Center" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn Header="Character Race" Width="300"
+                                HeaderContainerStyle="{StaticResource HeaderStyle}">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <ContentPresenter Content="{Binding Path=Race}" HorizontalAlignment="Center" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn Header="Character Class" Width="300"
+                                HeaderContainerStyle="{StaticResource HeaderStyle}">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <ContentPresenter Content="{Binding Path=Class}" HorizontalAlignment="Center" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn Header="Experience Points" Width="289"
+                                HeaderContainerStyle="{StaticResource HeaderStyle}">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <ContentPresenter Content="{Binding Path=Experience}" HorizontalAlignment="Center" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+            </GridView>
+
+        </ListView.View>
+        
+    </ListView>
+</UserControl>
